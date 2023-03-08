@@ -87,3 +87,74 @@ we can use
 <?= "Hello world" ?>
 ```
 and get the same result.
+
+
+### 4. Arrays
+
+Arrays are items stored together as a collection, you can have a collection of names, students,
+books.. literally anything that we can group together in real life can be represented using arrays.
+
+Below we have an example of a list of books that we iterate through using a `foreach` loop. There are
+more ways to loop through items that will get covered later.
+
+```php
+<body>
+    <h1>Recommended Books</h1>
+
+    <?php
+        $books = [
+            "Do Androids Dream of Electric Sheep",
+            "The Langoliers",
+            "Hail Mary",
+        ];
+    ?>
+
+    <ul>
+        <?php foreach ($books as $book) : ?>
+        <li>
+            <?= $book ?>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+```
+
+### 5. Associative Arrays
+
+Associative arrays are arrays where you have key-value pairs. Instead
+of identifying an item in an array by its position we now use a key
+to do it.
+
+Below is an example of an associative array.
+
+```php
+<body>
+    <h1>Recommended Books</h1>
+
+    <?php
+        $books = [
+                    [
+                        "name" => "Do Androids Dream of Electric Sheep",
+                        "author" => "Philip K. Dick",
+                        "purchaseUrl" => "http://example.com"
+                    ],
+                    [
+                        "name" => "Project Hail Mary",
+                        "author" => "Andy Weir",
+                        "purchaseUrl" => "http://example.com"
+                    ],
+        ];
+
+    ?>
+
+    <ul>
+        <?php foreach ($books as $book) : ?>
+        <li>
+            <a href="<?= $book["purchaseUrl"] ?>">
+                <?= $book["name"]; ?>
+            </a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+```

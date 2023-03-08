@@ -6,19 +6,32 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <?php
-        $name = "Dark Matter";
-        $read = false;
-        $message = "";
+    <h1>Recommended Books</h1>
 
-        if ($read){
-            $message = "You have read $name.";
-        } else {
-            $message = "You have NOT read $name.";
-        }
+    <?php
+        $books = [
+                [
+                        "name" => "Do Androids Dream of Electric Sheep",
+                        "author" => "Philip K. Dick",
+                        "purchaseUrl" => "http://example.com"
+                ],
+                [
+                        "name" => "Project Hail Mary",
+                        "author" => "Andy Weir",
+                        "purchaseUrl" => "http://example.com"
+                ],
+        ];
+
     ?>
-    <h1>
-        <?php echo $message; ?>
-    </h1>
+
+    <ul>
+        <?php foreach ($books as $book) : ?>
+        <li>
+            <a href="<?= $book["purchaseUrl"] ?>">
+                         <?= $book["name"]; ?>
+            </a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>
