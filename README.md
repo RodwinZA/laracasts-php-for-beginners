@@ -277,3 +277,14 @@ only shows how to filter by author, but this will be remedied later on.
     </ul>
 </body>
 ```
+
+### 8. Separate Logic from Templates
+
+Separating views from logic is important as this will increase readability
+of code as well as minimise 'clutter' as your codebase grows.
+
+We can split the php code as follows, `index.php` which is linked
+to `index.views.php` where the view file will have your markup. The view file needs to be imported
+to the logic file and that can be achieved by placing `require "index.views.php` at
+the end of our `index.php` file.
+
