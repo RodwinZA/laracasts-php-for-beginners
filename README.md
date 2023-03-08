@@ -1,7 +1,7 @@
 # LaraCasts PHP For Beginners
 
 ## Starting PHP Server
-`php -S localhost[portnumber]`
+`php -S localhost:[portnumber]`
 
 ## The Fundamentals
 
@@ -288,3 +288,10 @@ to `index.views.php` where the view file will have your markup. The view file ne
 to the logic file and that can be achieved by placing `require "index.views.php` at
 the end of our `index.php` file.
 
+--- 
+
+## Dynamic Web Applications
+
+### 1. Page Links
+
+PHP defers to the default index when it cannot locate a given url parameter.
