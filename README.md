@@ -158,3 +158,65 @@ Below is an example of an associative array.
     </ul>
 </body>
 ```
+
+### 6. Functions and Filters
+
+Functions are used to isolate and abstract sometimes complicated logic.
+They are declared with said logic and gets referenced as soon as we 'call' it
+inside our code.
+
+The next example shows how to create a filter function for a list of books. This function is restrictive as it 
+only shows how to filter by author, but this will be remedied later on.
+
+```php
+<body>
+    <h1>Recommended Books</h1>
+
+    <?php
+        $books = [
+                [
+                        "name" => "Do Androids Dream of Electric Sheep",
+                        "author" => "Philip K. Dick",
+                        "releaseYear" => 1968,
+                        "purchaseUrl" => "http://example.com"
+                ],
+                [
+                        "name" => "Project Hail Mary",
+                        "author" => "Andy Weir",
+                        "releaseYear" => 2021,
+                        "purchaseUrl" => "http://example.com"
+                ],
+                [
+                    "name" => "The Martian",
+                    "author" => "Andy Weir",
+                    "releaseYear" => 2011,
+                    "purchaseUrl" => "http://example.com"
+                ],
+        ];
+
+        function filterByAuthor($books, $author){
+            $filteredBooks = [];
+
+            foreach ($books as $book){
+                if ($book["author"] === $author){
+                    // append filtered book to $filteredBooks array
+                    $filteredBooks[] = $book;
+                }
+            }
+            return $filteredBooks;
+        }
+    ?>
+
+    <ul>
+        <?php foreach (filterByAuthor($books, "Andy Weir") as $book) : ?>
+        <li>
+            <a href="<?= $book["purchaseUrl"] ?>">
+                         <?= $book["name"]; ?> (<?= $book["releaseYear"] ?>) - By <?= $book["author"] ?>
+            </a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+```
+
+### 7. Lambda Functions
