@@ -321,3 +321,5 @@ and to just substitute the `$value` with the superglobal needed.
 
 We can also create a `functions.php` file in order to minimise code duplication and store all common functions in.
 
+### 4. Make a PHP Router
+
