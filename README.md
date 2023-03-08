@@ -295,3 +295,11 @@ the end of our `index.php` file.
 ### 1. Page Links
 
 PHP defers to the default index when it cannot locate a given url parameter.
+
+### 2. PHP Partials
+
+We create smaller 'snippets' of our code and arrange them into partials. This prevents code duplication inside our markup, e.g.
+our navigation will look the same across all our pages, so we can do the following:
+
+Create a `partials` folder. Inside of that folder create a `nav.php` file which will hold all of our shared markup. This partial
+can then be referenced inside our view by simply requiring it, e.g. `require "views/partials/nav.php`.
