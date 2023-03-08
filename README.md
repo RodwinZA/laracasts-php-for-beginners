@@ -303,3 +303,21 @@ our navigation will look the same across all our pages, so we can do the followi
 
 Create a `partials` folder. Inside of that folder create a `nav.php` file which will hold all of our shared markup. This partial
 can then be referenced inside our view by simply requiring it, e.g. `require "views/partials/nav.php`.
+
+### 3. Superglobals and Current Page
+
+TIP: An easier way to probe `var_dump` and `die()` is to place it inside a function, e.g.
+```php
+function dd($value)
+{
+    echo "<pre>";
+    var_dump($value);
+    echo "</pre>";
+
+    die();
+}
+```
+and to just substitute the `$value` with the superglobal needed.
+
+We can also create a `functions.php` file in order to minimise code duplication and store all common functions in.
+
