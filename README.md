@@ -323,3 +323,10 @@ We can also create a `functions.php` file in order to minimise code duplication 
 
 ### 4. Make a PHP Router
 
+### 5. Create a MYSQL Database
+
+If using homebrew for installations you need to start mysql first
+by running `brew services start mysql` in the terminal.
+
+In the terminal create a database by typing `mysql -uroot` and then
+`create database [database-name]`.
