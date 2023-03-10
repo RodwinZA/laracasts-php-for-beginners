@@ -330,3 +330,29 @@ by running `brew services start mysql` in the terminal.
 
 In the terminal create a database by typing `mysql -uroot` and then
 `create database [database-name]`.
+
+### 6. PDO First Steps
+
+To connect to a MySQL database we create a new instance of the PDO class and pass it the data source name
+parameter. The data source name (`$dsn`) contains our db connection details.
+
+```php
+$dsn = "mysql:host=localhost;port=3306;dbname=myapp;charset=utf8mb4;user=root";
+$pdo = new PDO($dsn);
+```
+
+Once connected we then prepare a query as below. The query will select everything inside our posts' database.
+
+```php
+$statement = $pdo->prepare(select * from posts);
+$statement->execute();
+```
+
+After our query is prepared we can fetch the results, as an associative array and
+store it inside a variable.
+```php
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+```
+
+After fetching the data it is now ready to be displayed and can be done as key/pair.
+
