@@ -356,3 +356,37 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 After fetching the data it is now ready to be displayed and can be done as key/pair.
 
+### 7. Extract a PHP Database Class
+
+Our database connection code can be improved by creating a class and moving it into
+its own file. We pass a `$query` parameter in order to make it more flexible when fetching
+results.
+
+```php
+class Database {
+    public $connection;
+    
+    public  function __construct(){
+        $dsn = "mysql:host=localhost;port=3306;dbname=myapp;charset=utf8mb4;user=root";
+        $this->connection = new PDO($dsn);
+    }
+    public function query($query){
+
+        $statement = $this->connection->prepare($query);
+        $statement->execute();
+
+        return $statement;
+    }
+}
+```
+
+We can now simply require the connection inside our index.php file,
+create a new instance of the db and query.
+
+```php
+require "Database.php";
+
+$db = new Database();
+$post = $db->query("select * from posts where id = 1")->fetch(PDO::FETCH_ASSOC);
+$posts = $db-> query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
+```
