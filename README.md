@@ -395,3 +395,21 @@ $posts = $db-> query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
 
 We can make our codebase more flexible by creating a configuration file for our environment that is easily
 adjustable. Example in code.
+
+### 9. SQL Injection Vulnerabilities
+
+As software developers we should always assume that our users will try something malicious.
+When accepting user input through a query string or a form, never inline it as part of a sql query.
+
+Don't do this:
+```php
+$id = $_GET['id'];
+$posts = $db-> query("select * from posts where id = {$id}")->fetch();
+```
+
+Instead, leverage prepared statements with bound parameters like this;
+```php
+
+$id = $_GET['id'];
+$posts = $db-> query("select * from posts where id = ?", [$id])->fetch();
+```
