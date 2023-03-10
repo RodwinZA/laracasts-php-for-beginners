@@ -390,3 +390,8 @@ $db = new Database();
 $post = $db->query("select * from posts where id = 1")->fetch(PDO::FETCH_ASSOC);
 $posts = $db-> query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
 ```
+
+### 8. Environments and Configuration Flexibility
+
+We can make our codebase more flexible by creating a configuration file for our environment that is easily
+adjustable. Example in code.
