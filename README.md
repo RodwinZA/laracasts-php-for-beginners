@@ -413,3 +413,6 @@ Instead, leverage prepared statements with bound parameters like this;
 $id = $_GET['id'];
 $posts = $db-> query("select * from posts where id = ?", [$id])->fetch();
 ```
+
+### 10. Introduction to Authorization
+
