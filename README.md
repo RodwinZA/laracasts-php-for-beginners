@@ -416,3 +416,17 @@ $posts = $db-> query("select * from posts where id = ?", [$id])->fetch();
 
 ### 10. Introduction to Authorization
 
+----
+
+## Project Organization
+
+### PHP Autoloading & Extraction
+
+At the moment our project files are accessible from the browser, even those we
+do not want displayed.
+
+To fix this security issue we need to create a `public` directory inside
+of our root folder and move `index.php` into it.
+
+We now start our server a bit differently:
+`php -S localhost:8888 -t public`
