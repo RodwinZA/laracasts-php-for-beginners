@@ -1,6 +1,7 @@
 <?php
 
 use Core\Response;
+use const Core\BASE_PATH;
 
 function dd($value)
 {
