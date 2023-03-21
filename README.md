@@ -430,3 +430,7 @@ of our root folder and move `index.php` into it.
 
 We now start our server a bit differently:
 `php -S localhost:8888 -t public`
+
+### Namespacing
+
+Namespacing helps prevent file name collision.

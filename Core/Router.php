@@ -1,10 +1,8 @@
 <?php
 
-
 namespace Core;
 
 class Router {
-
 
     // cache request method by storing in array
     // property is not available outside of this class
