@@ -434,3 +434,17 @@ We now start our server a bit differently:
 ### Namespacing
 
 Namespacing helps prevent file name collision.
+
+## Sessions and Authentication
+
+### PHP Sessions 101
+
+A session is a period in which a user interacts with your website, where different
+users have different sessions.
+
+The session data is 'remembered' as a user browses the site but a session is not permanent.
+
+Sessions should ideally be started as soon as possible, e.g. inside `public/index.php`
+```php
+session_start();
+```
